@@ -1,3 +1,7 @@
+----------------------------------------------
+Wunderground Personal Weather Station Uploader
+----------------------------------------------
+
 Upload a slice of data to your personal wunderground weather station data set
 via the rtupdate.wunderground.com interface.
 
