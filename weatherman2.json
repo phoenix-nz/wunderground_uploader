@@ -1,0 +1,52 @@
+{
+    "id": "IOSTER167",
+    "key": "4m5uICDe",
+    "dateutc": {
+        "path": "Systeminfo/zeitpunkt",
+        "conv": "mySQLDate"
+    },
+    "softwaretype": "Weatherman2",
+    "vars": {
+        "w_wind_dir": {
+            "name": "winddir_avg2m"
+        },
+        "w_wind_mittel": {
+            "name": "windspdmph_avg2m",
+            "conv": "miles"
+        },
+        "w_wind_spitze": {
+            "name": "windgustmph",
+            "conv": "miles"
+        },
+        "w_feuchte_rel": {
+            "name": "humidity"
+        },
+        "w_taupunkt": {
+            "name": "dewptf",
+            "conv": "fahrenheit"
+        },
+        "w_temperatur": {
+            "name": "tempf",
+            "conv": "fahrenheit"
+        },
+        "w_regen_letzte_h": {
+            "name": "rainin",
+            "conv": "inch"
+        },
+        "w_regen_mm_heute": {
+            "name": "dailyrainin",
+            "conv": "inch"
+        },
+        "w_barometer": {
+            "name": "baromin",
+            "conv": "pressureInch"
+        },
+        "w_lux": {
+            "name": "solarradiation",
+            "conv": "wattSquareMeter"
+        },
+        "w_uv_index": {
+            "name": "UV"
+        }
+    }
+}
