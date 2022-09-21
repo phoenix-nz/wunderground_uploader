@@ -109,11 +109,16 @@ def weatherman_get_data(station_ip, conf_file):
         conf = open(conf_file)
         data_conf = json.load(conf)
         conf.close()
-    except Exception:
+    except Exception as e:
         print("Failed to read config file " + conf_file)
         print(e)
         return None
     
-    convData = convert(data, data_conf)
+    try:
+        convData = convert(data, data_conf)
+    except Exception as e:
+        print("Conversion failed")
+        print(e)
+        return None
 
     return convData

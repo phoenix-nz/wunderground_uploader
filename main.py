@@ -2,6 +2,7 @@
 import uploader
 import weatherman
 import argparse
+import sys
 
 def main():
     parser = argparse.ArgumentParser('Download from weatherman and upload to wunderground')
@@ -18,6 +19,10 @@ def main():
     
     weather_data = weatherman.weatherman_get_data(args.source, args.config)
 
+    if weather_data is None:
+        print("Error getting data - aborting")
+        return -1
+
     if args.verbose:
         print("Got weather data --")
         print(weather_data)
@@ -29,7 +34,7 @@ def main():
             outfile.close()
         except Exception:
             print("Failed to write data to " + args.output)
-            return
+            return -2
 
     station_id = weather_data.pop("id")
     station_key = weather_data.pop("key")
@@ -41,6 +46,7 @@ def main():
     uploader.wunderground_upload_data_point(station_id, station_key, weather_data, utc_timestamp)
 
     print("Uploaded weather data for station ID " + station_id + " UTC: " + utc_timestamp)
+    return 0
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
